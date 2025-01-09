@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add Recipe</title>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <form class="col-6 mx-auto card p-3 shadow-lg" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h2>Add Recipe</h2>
+        <hr>
+        <div class="mb-3">
+          <label for="receipeName" class="form-label">Recipe Name</label>
+          <input type="text" id="receipeName" name="receipe_name" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="receipeDescription" class="form-label">Recipe Description</label>
+          <input type="text" id="receipeDescription" name="receipe_description" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="receipeImage" class="form-label">Recipe Image</label>
+          <input type="file" id="receipeImage" name="receipe_image" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Add Recipe</button>
+      </form>
+      <hr>
+      <table class="table mt-5">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Recipe Name</th>
+            <th scope="col">Recipe Description</th>
+            <th scope="col">Recipe Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for rcp in receipe %}
+          <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{ rcp.receipe_name }}</td>
+            <td>{{ rcp.receipe_description }}</td>
+            <td>
+              
+              <img src ="/media/{{rcp.receipe_image}}" style= height :100px>
+            </td>
+            
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
