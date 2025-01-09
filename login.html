@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add Recipe</title>
+  </head>
+  <body>
+    <div class="container mt-5">
+        <form class="col-6 mx-auto card p-3 shadow-lg" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h2>login page</h2>
+        <hr>
+         {% if messgaes %}
+         <div class "alert alert-primary" role = "alert">
+            {% for message in messgaes%}
+            {{message}}
+            {% endfor %}
+         </div>
+
+    
+         {% endif %}
+
+
+
+
+
+                <div class="mb-3">
+          <label for="username" class="form-label">username</label>
+          <input type="text" id="username" name="username" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">password</label>
+          <input type="text" id="password" name="password" class="form-control" required>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">login</button>
+    </form> 
+      
+    </div>
+  </body>
+</html>
